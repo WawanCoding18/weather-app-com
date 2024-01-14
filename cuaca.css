@@ -219,7 +219,7 @@
 
   .weather-detail {
       width: 90%;
-      margin-left: 10px;
+      margin-left: 20px;
   }
 
   .col img{
@@ -257,9 +257,6 @@
  #arrow-right-circle{
      margin-right: 40px;
   }
-
-  
-  
 
   
 }
