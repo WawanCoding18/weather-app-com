@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather</title>
     <link rel="stylesheet" href="cuaca.css">
 
     
@@ -14,12 +14,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 
+  <link rel="icon" href="img/clear.png" />
+
+     <!--feather icon -->
+     <script src="https://unpkg.com/feather-icons"></script>
 
 </head>
-<body>
+<body id="All">
     
-<div class="card">
 
+<div class="card">
+      
     <div class="search">
         <input type="text" placeholder="city" spellcheck="false">
         <button><img src="img/search.png" alt="search"></button>
@@ -35,9 +40,18 @@
        <h3 class="city">-</h3>
     
     <div class="weather-detail">
+         
+        <div class="col">
+            <div class="special"><img src="img/pressure.png" alt=""></div>
+
+            <div>
+                <p class="pressure">0m/b</p>
+                <p class="p">Tekanan</p>
+            </div>
+        </div>
 
         <div class="col">
-            <img src="img/humidity.png" alt="">
+            <img src="img/humidity-black.png" alt="">
             <div>
                 <p class="humidity">0%</p>
                 <p class="p">Kelembapan</p>
@@ -45,12 +59,83 @@
         </div>
 
         <div class="col">
-            <img src="img/wind.png" alt="">
+            <img src="img/wind-black.png" alt="">
             <div>
-                <p class="wind">0%</p>
+                <p class="wind">0km/h</p>
                 <p class="p">Angin</p>
             </div>
         </div>
+
+    </div>
+
+    <div class="weather-upcoming">
+
+        <a id="arrow-left-circle"><i data-feather="arrow-left-circle"></i></a>
+
+     <div class="gallery1">
+        <div class="card-upcoming">
+           <div>
+            <p class="day">Senin</p>
+            <img src="img/rain.png" alt="" class="weather-icon-upcoming">
+            <p class="suhu">23C</p>
+           </div>
+        </div>
+
+        <div class="card-upcoming">
+           <div>
+            <p class="day">Selasa</p>
+            <img src="img/rain.png" alt="" class="weather-icon-upcoming">
+            <p class="suhu">23C</p>
+           </div>
+        </div>
+
+        <div class="card-upcoming">
+           <div>
+            <p class="day">Rabu</p>
+            <img src="img/rain.png" alt="" class="weather-icon-upcoming">
+            <p class="suhu">23C</p>
+           </div>
+        </div>
+
+        <div class="card-upcoming">
+           <div>
+            <p class="day">Kamis</p>
+            <img src="img/rain.png" alt="" class="weather-icon-upcoming">
+            <p class="suhu">23C</p>
+           </div>
+        </div>
+    
+    
+
+        <div class="card-upcoming">
+           <div>
+            <p class="day">Jumat</p>
+            <img src="img/rain.png" alt="" class="weather-icon-upcoming">
+            <p class="suhu">23C</p>
+           </div>
+        </div>
+
+        
+        <div class="card-upcoming">
+            <div>
+             <p class="day">Sabtu</p>
+             <img src="img/rain.png" alt="" class="weather-icon-upcoming">
+             <p class="suhu">23C</p>
+            </div>
+         </div>
+
+         
+        <div class="card-upcoming">
+            <div>
+             <p class="day">Ahad</p>
+             <img src="img/rain.png" alt="" class="weather-icon-upcoming">
+             <p class="suhu">23C</p>
+            </div>
+         </div>
+     </div>
+  
+
+        <a id="arrow-right-circle"><i data-feather="arrow-right-circle"></i></a>
 
     </div>
  </div>
@@ -59,7 +144,9 @@
 
 
 
-
+<script>
+    feather.replace()
+</script>
 
     <script src="cuaca.js"></script>
 </body>

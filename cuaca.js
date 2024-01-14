@@ -4,6 +4,7 @@
 const apisKey = '7008f3c5b7b1ec4ce7e080fa9cf9d291';
 const apisUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q='
 
+const body = document.getElementById('All')
 const weatherCard = document.querySelector('.weather-card')
 const weatherIcon = document.querySelector('.weather-icon')
 const searchBox = document.querySelector('.search input')
@@ -19,6 +20,7 @@ async function weatherConditional(city){
        error.style.display = 'block'
        weatherCard.style.display = 'none'
        
+       
        setTimeout(function(){
            error.style.display = 'none' 
        }, 2000)
@@ -30,26 +32,57 @@ async function weatherConditional(city){
     document.querySelector('.city').innerHTML = data.name;
     document.querySelector('.temp').innerHTML = Math.round(data.main.temp)+ ' °c';
     document.querySelector('.humidity').innerHTML = data.main.humidity+ ' %';
-    document.querySelector('.wind').innerHTML = data.wind.speed+ ' km/h'
+    document.querySelector('.wind').innerHTML = data.wind.speed+ ' km/h';
+    document.querySelector('.pressure').innerHTML = data.main.pressure+ ' m/b'
 
-    //statement 
+    //statement jika data cuaca nya menentukan cuaca yg dituju maka gambar nya akan  muncul sesuai cuaca yang data tuju
     if(data.weather[0].main == 'Clouds'){
         weatherIcon.src = 'img/clouds.png'
+        
+        body.classList.remove('cerah')
+        body.classList.remove('hujan')
+        body.classList.remove('salju')
+        body.classList.add('cuaca')
     }
     else if(data.weather[0].main == 'Rain'){
         weatherIcon.src = 'img/rain.png'
+
+        body.classList.remove('cerah')
+        body.classList.remove('cuaca')
+        body.classList.remove('salju')
+        body.classList.add('hujan')
     }
     else if(data.weather[0].main == 'Drizzle'){
         weatherIcon.src = 'img/drizzle.png'
+
+        body.classList.remove('cerah')
+        body.classList.remove('cuaca')
+        body.classList.remove('salju')
+        body.classList.add('hujan')
     }
     else if(data.weather[0].main == 'Mist'){
         weatherIcon.src = 'img/mist.png'
+
+        body.classList.remove('cerah')
+        body.classList.remove('cuaca')
+        body.classList.remove('salju')
+        body.classList.add('hujan')
     }
     else if(data.weather[0].main == 'Clear'){
         weatherIcon.src = 'img/clear.png'
+
+        body.classList.remove('hujan')
+        body.classList.remove('cuaca')
+        body.classList.remove('salju')
+        body.classList.add('cerah')
     }
     else if(data.weather[0].main == 'Snow'){
         weatherIcon.src = 'img/snow.png'
+
+        body.classList.remove('cerah')
+        body.classList.remove('cuaca')
+        body.classList.remove('hujan')
+        body.classList.add('salju')
     }
     
 
@@ -57,7 +90,7 @@ async function weatherConditional(city){
     document.querySelector('.error').style.display = 'none'
 }
 }
-
+// if click, so result the asnwer in searchbox you want
 searchBtn.addEventListener('click', function(){
     const wrong = searchBox.value.trim()
     
@@ -72,7 +105,7 @@ searchBtn.addEventListener('click', function(){
     }, 500)
  
 })
-
+// if enter, so result the asnwer in searchbox you want
 searchBox.addEventListener('keydown', function(enter){
     if(enter.key == 'Enter'){
         enter.preventDefault()
@@ -87,7 +120,7 @@ searchBox.addEventListener('keydown', function(enter){
           searchBox.value = null
        }, 500)
     }
-
+  
 
 })
 
@@ -99,4 +132,59 @@ function deleteTrim(){
         error.style.display = 'none' 
       }, 2000)
 }
+
+//selection about scroll event moment
+const scrollMain = document.querySelector('.gallery1')
+const scrolLeft = document.getElementById('arrow-left-circle')
+const scrolRight = document.getElementById('arrow-right-circle')
+const cardUpcoming = document.querySelector('.weather-upcoming')
+
+
+//jika mouse di scroll atas bawah maka akan bergerak
+scrollMain.addEventListener('wheel', function(e){
+     const move = 30
+     if (e.deltaY > 0)// <= scrol rigth
+       scrollMain.scrollLeft += move
+    else // <= scrol left
+        scrollMain.scrollLeft -= move
+        e.preventDefault()
+})
+
+//jika dipencet tanda panah nya yg kanan ato kiri maka akan ngescroll
+scrollMain.addEventListener("wheel", (e) => {
+    e.preventDefault()
+    scrollMain.scrollLeft += e.deltaY
+    scrollMain.style.scrollBehavior = 'auto'
+})
+
+scrolLeft.addEventListener("click", ()=>{
+    scrollMain.style.scrollBehavior = 'smooth'
+    scrollMain.scrollLeft -= 1000;
+})
+
+scrolRight.addEventListener("click", ()=>{
+    scrollMain.style.scrollBehavior = 'smooth'
+    scrollMain.scrollLeft += 1000;
+})
+
+// let pressed = false;
+// let cursorX;
+// scrollMain.addEventListener('mousedown', function (e){
+//     pressed = true
+//     cursorX = e.offsetX - cardUpcoming.offsetXLeft;
+//     scrollMain.style.cursor = 'grabbling'
+// })
+
+// scrollMain.addEventListener('mousemove', (e) =>{
+//     if(!pressed) return;
+//     e.preventDefault()
+//     cardUpcoming.style.left = `${e.offsetX - cursorX}px`
+// })
+
+//
+
+
+
+
+
 

@@ -9,10 +9,37 @@
  }
 
  body{
-    background-image: url('img/cuaca.jpg');
+     background: linear-gradient(135deg, #00feba, #5b548a);
+ }
+
+ .black{
+    background-color: black;
+ }
+
+ .hujan{
+  background-image: url('img/hujan.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cuaca{
+  background-image: url('img/cuaca.jpg');
     background-repeat: no-repeat;
     background-size: cover;
- }
+}
+
+.cerah{
+  background-image: url('img/cerah.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+
+.salju{
+  background-image: url('img/salju.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
  .search{
    display: flex;
@@ -44,21 +71,21 @@
 
 
 .weather-icon{
-    width: 250px;
-    margin-left: 40%;
+    width: 150px;
+    margin-left: 45%;
     margin-top: 30px;
 }
 
 .temp{
   text-align: center;
   font-weight: 600;
-  font-size: 40px;
+  font-size: 25px;
 }
 
 .city{
   text-align: center;
   font-weight: 600;
-  font-size: 40px;
+  font-size: 25px;
   line-height: -50px;
 }
 
@@ -66,25 +93,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 20px; 
+    background-color: white;
+    width: 45%;
+    margin-left: 30%;
+    border-radius: 30px;
+
 }
 
 .col {
     display: flex;
     align-items: center;
     text-align: left;
-    margin: 20px
-    
+    margin: 20px; 
 }
 
 .col img{
-    width: 80px;
+    width: 30px;
     margin-right: 20px;
 }
 
+.special {
+  filter: brightness(200%);
+  
+}
 
-.humidity, .wind{
-    font-size: 30px;
+
+.humidity, .pressure, .wind{
+    font-size: 20px;
     font-weight: 500;
 }
 
@@ -93,9 +129,113 @@
     font-weight: 500;
 }
 
+.weather-upcoming{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.card-upcoming{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+  background-color: rgb(102, 131, 187);
+  padding: 30px;
+  border-radius: 30px;
+}
+
+.day{
+  background-color: white;
+  padding: 20px;
+  width: 100px;
+  border: 0;
+  border-radius: 20px;
+  margin-left: 30px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.weather-icon-upcoming{
+   width: 150px;
+}
+
+.suhu{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#arrow-left-circle:hover, #arrow-right-circle:hover{
+  color: red;
+  cursor: pointer;
+}
+
+.gallery1{
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  width: 56%;
+}
+
+
 .eror{
   display: none;
   font-size: 18px;
   margin-left: 38%;
   color: rgb(255, 255, 255);
 }
+
+@media (max-width: 768px) {
+  
+  .search {
+    margin-top: 10px;
+  }
+
+  .search input {
+      width: 50%;
+      margin-bottom: 10px;
+  }
+
+  .search button {
+      width: 10%;
+      margin-right: 10px;
+  }
+
+  .search img{
+    width: 20px;
+    height: 20px;
+  }
+
+  .weather-icon {
+    margin-left: 35%;
+  }
+
+  .weather-detail {
+      width: 100%;
+      margin-left: 0;
+  }
+
+  .col img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+.humidity, .pressure, .wind{
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.p{
+  font-size: 15px;
+  font-weight: 500;
+}
+
+  .eror {
+      margin-left: 20%;
+  }
+}
+
+
