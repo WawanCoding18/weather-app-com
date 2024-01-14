@@ -38,7 +38,7 @@ async function weatherConditional(city){
     //statement jika data cuaca nya menentukan cuaca yg dituju maka gambar nya akan  muncul sesuai cuaca yang data tuju
     if(data.weather[0].main == 'Clouds'){
         weatherIcon.src = 'img/clouds.png'
-        
+
         body.classList.remove('cerah')
         body.classList.remove('hujan')
         body.classList.remove('salju')
@@ -159,12 +159,12 @@ scrollMain.addEventListener("wheel", (e) => {
 
 scrolLeft.addEventListener("click", ()=>{
     scrollMain.style.scrollBehavior = 'smooth'
-    scrollMain.scrollLeft -= 1000;
+    scrollMain.scrollLeft -= 250;
 })
 
 scrolRight.addEventListener("click", ()=>{
     scrollMain.style.scrollBehavior = 'smooth'
-    scrollMain.scrollLeft += 1000;
+    scrollMain.scrollLeft += 250;
 })
 
 // let pressed = false;
